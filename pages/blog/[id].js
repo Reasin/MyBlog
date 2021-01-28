@@ -1,16 +1,19 @@
+import style from '../../styles/Home.module.scss'
+
 export default function BlogId({ blog }){
     return(
-        <main>
-            <h1>
+        <main className={style.main}>
+            <h1 className={style.title}>
                 {blog.title}
             </h1>
-            <p>
+            <p className={style.publishedAt}>
                 {blog.publishedAt}
             </p>
             <div 
             dangerouslySetInnerHTML={{
-                __html:`${blog.body}`
+                __html: `${blog.body}`
             }}
+            className={style.post}
             />
         </main>
     )
