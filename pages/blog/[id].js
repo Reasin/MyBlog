@@ -17,7 +17,7 @@ export default function BlogId({ blog }){
 }
 
 
-export const getStaticProps = async () => {
+export const getStaticPaths = async () => {
     const key = {
         headers: {'X-API-KEY': process.env.API_KEY}
     };
@@ -25,24 +25,24 @@ export const getStaticProps = async () => {
     .then(res => res.json())
     .catch(() => null);
     const paths = data.contents.map(content => `/blog/${content.id}`);
-    return {path, fallback: false};
+    return {paths, fallback: false};
 };
 
 
 export const getStaticProps = async context => {
     const id = context.params.id;
     const key = {
-        headers:{'X-API-KEY':process.env.API_KEY}
+        headers: {'X-API-KEY': process.env.API_KEY}
     };
     const data = await fetch(
-        'https://techgierblog.microcms.io/api/v1/blog' + id,
-        key
+        'https://techgierblog.microcms.io/api/v1/blog/' + id,
+        key,
     )
     .then(res => res.json())
-    .catch(() => null)
+    .catch(() => null);
     return{
         props:{
-            blog:data
+            blog: data
         }
     };
 };
