@@ -6,7 +6,7 @@ export default function Home({ blog }){
             <ul>
                 {blog.map(blog => (
                     <li key={blog.id}>
-                        <Link href={`blog/${blog.id}`}>
+                        <Link href={`/blog/${blog.id}`}>
                             <a>{blog.title}</a>
                         </Link>
                     </li>
@@ -21,7 +21,7 @@ export const getStaticProps = async() => {
     const key = {
         headers: {'X-API-KEY': process.env.API_KEY}
     };
-    const data = await fetch('https://techgierblog.microcms.io/api/v1/blog', key)
+    const data = await fetch('https://techgierblog.microcms.io/api/v1/blog/', key)
     .then(res => res.json())
     .catch(() => null);
     return {

@@ -21,7 +21,7 @@ export const getStaticPaths = async () => {
     const key = {
         headers: {'X-API-KEY': process.env.API_KEY}
     };
-    const data = await fetch('https://techgierblog.microcms.io/api/v1/blog', key)
+    const data = await fetch('https://techgierblog.microcms.io/api/v1/blog/', key)
     .then(res => res.json())
     .catch(() => null);
     const paths = data.contents.map(content => `/blog/${content.id}`);
