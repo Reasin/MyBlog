@@ -1,24 +1,29 @@
 import style from '../../styles/Home.module.scss'
 
+import Header from '../../components/Header'
+
 export default function BlogId({ blog }){
     return(
-        <main className={style.main}>
-            <h1 className={style.title}>
-                {blog.title}
-            </h1>
-            <p className={style.publishedAt}>
-                {blog.publishedAt}
-            </p>
-            <p className={style.category}>
-                {blog.category && `${blog.category.name}`}
-            </p>
-            <div 
-            dangerouslySetInnerHTML={{
-                __html: `${blog.body}`
-            }}
-            className={style.post}
-            />
-        </main>
+        <>
+            <Header />
+            <main className={style.main}>
+                <h1 className={style.title}>
+                    {blog.title}
+                </h1>
+                <p className={style.publishedAt}>
+                    {blog.publishedAt}
+                </p>
+                <p className={style.category}>
+                    {blog.category && `${blog.category.name}`}
+                </p>
+                <div 
+                dangerouslySetInnerHTML={{
+                    __html: `${blog.body}`
+                }}
+                className={style.post}
+                />
+            </main>
+        </>
     )
 }
 

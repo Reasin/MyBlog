@@ -1,8 +1,12 @@
+import Head from 'next/head'
 import Link from 'next/link'
+
+import Header from '../components/Header'
 
 export default function Home({ blog }){
     return(
         <div>
+            <Header />
             <ul>
                 {blog.map(blog => (
                     <li key={blog.id}>
