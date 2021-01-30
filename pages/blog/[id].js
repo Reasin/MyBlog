@@ -4,7 +4,6 @@ import markdownStyle from '../../styles/markdown.module.scss'
 import Header from '../../components/Header'
 
 export default function BlogId({ blog }){
-    const publishedAt = blog.publishedAt.substr(0, 10) //日付までの出力にしました。
     return(
         <div className={style.background}>
             <Header />
@@ -17,7 +16,7 @@ export default function BlogId({ blog }){
                         {blog.category && `${blog.category.name}`}
                     </p>
                     <p className={style.publishedAt}>
-                        {publishedAt}
+                        {blog.publishedAt.substr(0, 10)}
                     </p>
                 </div>
                 <div 
