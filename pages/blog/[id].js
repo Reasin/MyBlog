@@ -8,23 +8,25 @@ export default function BlogId({ blog }){
         <div className={style.background}>
             <Header />
             <main className={style.main}>
-                <h1 className={style.title}>
-                    {blog.title}
-                </h1>
-                <div className={style.category_publishedAt}>
-                    <p className={style.category}>
-                        {blog.category && `${blog.category.name}`}
-                    </p>
-                    <p className={style.publishedAt}>
-                        投稿日: {blog.publishedAt.substr(0, 10)}
-                    </p>
-                </div>
-                <div 
-                dangerouslySetInnerHTML={{
-                    __html: `${blog.body}`
-                }}
-                className={markdownStyle.post}
-                />
+                <article className={style.article}>
+                    <h1 className={style.title}>
+                        {blog.title}
+                    </h1>
+                    <div className={style.category_publishedAt}>
+                        <p className={style.category}>
+                            {blog.category && `${blog.category.name}`}
+                        </p>
+                        <p className={style.publishedAt}>
+                            投稿日: {blog.publishedAt.substr(0, 10)}
+                        </p>
+                    </div>
+                    <div 
+                    dangerouslySetInnerHTML={{
+                        __html: `${blog.body}`
+                    }}
+                    className={markdownStyle.post}
+                    />
+                </article>
             </main>
         </div>
     )
