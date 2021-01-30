@@ -9,11 +9,14 @@ export default function Home({ blog }){
         <div className={style.background}>
             <Header />
             <main className={style.main}>
+                <h1 className={style.sub_title}>
+                    New article
+                </h1>
                 {blog.map(blog => (
-                    <article key={blog.id} className={style.article}>
+                    <article key={blog.id} className={style.home_article}>
                         <Link href={`/blog/${blog.id}`}>
                             <h1 className={style.home_title}>
-                                {blog.title}
+                                <a>{blog.title}</a>
                             </h1>
                         </Link>
                         <div className={style.home_category_publishedAt}>
