@@ -12,7 +12,7 @@ export default function Home({ blog }){
                 {blog.map(blog => (
                     <article key={blog.id} className={style.article}>
                         <Link href={`/blog/${blog.id}`}>
-                            <h1 className={style.title}>
+                            <h1 className={style.home_title}>
                                 {blog.title}
                             </h1>
                         </Link>
