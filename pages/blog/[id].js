@@ -3,19 +3,22 @@ import style from '../../styles/Home.module.scss'
 import Header from '../../components/Header'
 
 export default function BlogId({ blog }){
+    const publishedAt = blog.publishedAt.substr(0, 10) //日付までの出力にしました。
     return(
-        <>
+        <div className={style.background}>
             <Header />
             <main className={style.main}>
                 <h1 className={style.title}>
                     {blog.title}
                 </h1>
-                <p className={style.publishedAt}>
-                    {blog.publishedAt}
-                </p>
-                <p className={style.category}>
-                    {blog.category && `${blog.category.name}`}
-                </p>
+                <div className={style.category_publishedAt}>
+                    <p className={style.category}>
+                        {blog.category && `${blog.category.name}`}
+                    </p>
+                    <p className={style.publishedAt}>
+                        {publishedAt}
+                    </p>
+                </div>
                 <div 
                 dangerouslySetInnerHTML={{
                     __html: `${blog.body}`
@@ -23,7 +26,7 @@ export default function BlogId({ blog }){
                 className={style.post}
                 />
             </main>
-        </>
+        </div>
     )
 }
 
