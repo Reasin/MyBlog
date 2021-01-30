@@ -16,7 +16,7 @@ export default function BlogId({ blog }){
                         {blog.category && `${blog.category.name}`}
                     </p>
                     <p className={style.publishedAt}>
-                        {blog.publishedAt.substr(0, 10)}
+                        投稿日: {blog.publishedAt.substr(0, 10)}
                     </p>
                 </div>
                 <div 
