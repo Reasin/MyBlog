@@ -1,4 +1,5 @@
 import style from '../../styles/Home.module.scss'
+import markdownStyle from '../../styles/markdown.module.scss'
 
 import Header from '../../components/Header'
 
@@ -23,7 +24,7 @@ export default function BlogId({ blog }){
                 dangerouslySetInnerHTML={{
                     __html: `${blog.body}`
                 }}
-                className={style.post}
+                className={markdownStyle.post}
                 />
             </main>
         </div>
