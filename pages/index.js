@@ -1,21 +1,31 @@
 import Link from 'next/link'
 
+import style from '../styles/Home.module.scss'
+
 import Header from '../components/Header'
 
 export default function Home({ blog }){
     return(
-        <div className="background">
-            <main>
-                <Header />
-                <ul>
-                    {blog.map(blog => (
-                        <ol key={blog.id}>
-                            <Link href={`/blog/${blog.id}`}>
-                                <a>{blog.title}</a>
-                            </Link>
-                        </ol>
-                    ))}
-                </ul>
+        <div className={style.background}>
+            <Header />
+            <main className={style.main}>
+                {blog.map(blog => (
+                    <article key={blog.id} className={style.article}>
+                        <Link href={`/blog/${blog.id}`}>
+                            <h1 className={style.title}>
+                                {blog.title}
+                            </h1>
+                        </Link>
+                        <div className={style.home_category_publishedAt}>
+                            <p>
+                                {blog.category && `${blog.category.name}`}
+                            </p>
+                            <p>
+                                {blog.publishedAt.substr(0, 10)}
+                            </p>
+                        </div>
+                    </article>
+                ))}
             </main>
         </div>
     );
