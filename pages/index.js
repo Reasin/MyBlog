@@ -19,13 +19,17 @@ export default function Home({ blog }){
                                 <a>{blog.title}</a>
                             </h1>
                         </Link>
-                        <div className={style.home_category_publishedAt}>
-                            <p>
-                                {blog.category && `${blog.category.name}`}
-                            </p>
-                            <p>
-                                {blog.publishedAt.substr(0, 10)}
-                            </p>
+                        <p className={style.publishedAt}>
+                            投稿日:{blog.publishedAt.substr(0, 10)}    
+                        </p>
+                        <div className={style.category}>
+                            {blog.category.map(category => (
+                                <Link key={category.id} href={`/category/${category.name}`}>
+                                    <p className={style.category_name}>
+                                        {category && `${category.name}`}
+                                    </p>
+                                </Link>
+                            ))}
                         </div>
                     </article>
                 ))}

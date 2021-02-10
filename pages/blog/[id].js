@@ -1,3 +1,5 @@
+import Link from 'next/link'
+
 import style from '../../styles/Home.module.scss'
 import markdownStyle from '../../styles/markdown.module.scss'
 
@@ -12,13 +14,17 @@ export default function BlogId({ blog }){
                     <h1 className={style.title}>
                         {blog.title}
                     </h1>
-                    <div className={style.category_publishedAt}>
-                        <p className={style.category}>
-                            {blog.category && `${blog.category.name}`}
-                        </p>
-                        <p className={style.publishedAt}>
-                            投稿日: {blog.publishedAt.substr(0, 10)}
-                        </p>
+                    <p className={style.publishedAt}>
+                        投稿日: {blog.publishedAt.substr(0, 10)}
+                    </p>
+                    <div className={style.category}>
+                        {blog.category.map(category => (
+                            <Link key={category.id} href={`/category/${category.name}`}>
+                                <p className={style.category_name}>
+                                    {category && `${category.name}`}
+                                </p>
+                            </Link>
+                        ))}
                     </div>
                     <div 
                     dangerouslySetInnerHTML={{
