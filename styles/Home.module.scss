@@ -86,8 +86,15 @@
 
 .category {
   margin: 0;
-  padding: 3px;
-  background-color: #dcdcdc;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  padding-top: 5px;
+}
+.category_name {
+  margin: 0;
+  padding-right: 10px;
+  color: #a9a9a9;
 }
 
 .publishedAt {
