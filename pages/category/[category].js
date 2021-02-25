@@ -5,7 +5,7 @@ import Header from '../../components/Header'
 
 import style from '../../styles/Home.module.scss'
 
-export default function BlogId({ blog }){
+export default function CategoryId({ blog }){
     const router = useRouter()
     const {category} = router.query
     const filter_category = Array()
