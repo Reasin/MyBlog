@@ -13,9 +13,6 @@ export default function Header(){
                         TechBlog    
                     </h1>
                 </Link>
-                <form>
-                    <input type="text" placeholder="Search" />
-                </form>
             </div>
             <style jsx>{`
                 header {
