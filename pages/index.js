@@ -5,13 +5,21 @@ import style from '../styles/Home.module.scss'
 import Header from '../components/Header'
 
 export default function Home({ blog }){
+    blog.sort(function(a, b){
+        if(a.publishedAt > b.publishedAt){
+            return -1;
+        }else{
+            return 1;
+        }
+    });
+    
     return(
         <div className={style.background}>
             <Header />
             <main className={style.main}>
                 <h1 className={style.sub_title}>
                     New article
-                </h1>
+                </h1>                
                 {blog.map(blog => (
                     <article key={blog.id} className={style.home_article}>
                         <Link href={`/blog/${blog.id}`}>
